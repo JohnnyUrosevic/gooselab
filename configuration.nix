@@ -48,8 +48,6 @@
     variant = "";
   };
 
-  services.openssh.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.goose = {
     isNormalUser = true;
@@ -78,10 +76,8 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  programs.ssh.startAgent = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
