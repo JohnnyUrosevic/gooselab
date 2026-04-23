@@ -1,30 +1,37 @@
 {
-	description = "Nixos Home Server";
-	inputs = {
-		self.submodules = true;
+  description = "Nixos Home Server";
+  inputs = {
+    self.submodules = true;
 
-		nixpkgs.url = "nixpkgs/nixos-unstable";
-		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-	};
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-	outputs = { self, nixpkgs, home-manager, ... }: {
-		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-			modules = [
-				./configuration.nix
-				home-manager.nixosModules.home-manager
-				{
-					home-manager = {
-						useGlobalPkgs = true;
-						useUserPackages = true;
-						users.goose = import ./home.nix;
-						backupFileExtension = "backup";
-					};
-				}
-			];
-		};
-	};
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.goose = import ./home.nix;
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
+    };
 }
