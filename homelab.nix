@@ -23,6 +23,7 @@
         auth-user-pass /etc/nixos/pia-auth.txt
       '';
       autoStart = true;
+      updateResolvConf = true; # DNS resolution, probably remove later
     };
-};
+  };
 }
