@@ -48,6 +48,13 @@
     variant = "";
   };
 
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.goose = {
     isNormalUser = true;
@@ -56,6 +63,7 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
 

@@ -4,7 +4,6 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     nvim = "nvim";
-    tmux = "tmux";
   };
 in
 
@@ -13,6 +12,11 @@ in
   home.homeDirectory = "/home/goose";
   programs.git.enable = true;
   home.stateVersion = "25.05";
+
+  home.file.".alias".source = ./dotfiles/.alias;
+  home.file.".zshrc".source = ./dotfiles/.zshrc;
+  home.file.".vimrc".source = ./dotfiles/.vimrc;
+  home.file.".gitconfig".source = ./dotfiles/.gitconfig;
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
@@ -27,6 +31,15 @@ in
     nil
     nixpkgs-fmt
 
-    tmux
+    cowsay
+    fortune-kind
+    zoxide
+
+    lazygit
   ];
+
+    programs.tmux = {
+      enable = true;
+      shell = "${pkgs.zsh}/bin/zsh";
+    };
 }
