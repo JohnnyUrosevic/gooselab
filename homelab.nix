@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.radarr = {
@@ -15,4 +15,14 @@
     enable = true;
     openFirewall = true;
   };
+
+  services.openvpn.servers = {
+    pia = {
+      config = ''
+        config /home/goose/gooselab/config.ovpn
+        auth-user-pass /etc/nixos/pia-auth.txt
+      '';
+      autoStart = true;
+    };
+};
 }
