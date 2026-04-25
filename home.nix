@@ -36,6 +36,7 @@ in
     zoxide
 
     lazygit
+    bat
   ];
 
     programs.tmux = {
