@@ -36,6 +36,4 @@
       updateResolvConf = true; # DNS resolution, probably remove later
     };
   };
-
-  services.udisks2.enable = true;
 }
