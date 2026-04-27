@@ -24,10 +24,10 @@
     openFirewall = true;
   };
 
-  services.qbittorrent = {
-    enable = true;
-    openFirewall = true;
-  };
+  # services.qbittorrent = {
+  #   enable = true;
+  #   openFirewall = true;
+  # };
 
   services.openvpn.servers = {
     pia = {

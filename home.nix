@@ -14,7 +14,6 @@ in
   home.stateVersion = "25.05";
 
   home.file.".alias".source = ./dotfiles/.alias;
-  home.file.".zshrc".source = ./dotfiles/.zshrc;
   home.file.".vimrc".source = ./dotfiles/.vimrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
 

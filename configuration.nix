@@ -51,9 +51,9 @@
 
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-    };
+    # ohMyZsh = {
+    #   enable = true;
+    # };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
