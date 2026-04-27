@@ -94,6 +94,11 @@
   programs.ssh.startAgent = true;
   services.openssh.enable = true;
 
+  services.openssh.extraConfig = ''
+    UseDNS no
+    GSSAPIAuthentication no
+  '';
+
 
   boot.kernel.sysctl = {
     "net.ipv6.conf.all.disable_ipv6" = 1;
