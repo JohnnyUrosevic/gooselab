@@ -39,8 +39,8 @@ in
     bat
   ];
 
-    programs.tmux = {
-      enable = true;
-      shell = "${pkgs.zsh}/bin/zsh";
-    };
+  programs.tmux = {
+    enable = true;
+    shell = "${pkgs.zsh}/bin/zsh";
+  };
 }

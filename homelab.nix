@@ -1,19 +1,22 @@
-{ config, ... }:
+{ pkgs, ... }:
 
 {
   services.radarr = {
     enable = true;
     openFirewall = true;
+    user = "goose";
   };
 
   services.sonarr = {
     enable = true;
     openFirewall = true;
+    user = "goose";
   };
 
   services.bazarr = {
     enable = true;
     openFirewall = true;
+    user = "goose";
   };
 
   services.prowlarr = {
@@ -36,4 +39,21 @@
       updateResolvConf = true; # DNS resolution, probably remove later
     };
   };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "goose";
+  };
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
+
+  services.jellyseerr = {
+    enable = true;
+    openFirewall = true;
+  };
+
 }
