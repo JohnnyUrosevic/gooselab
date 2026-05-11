@@ -36,6 +36,8 @@ in
 
     lazygit
     bat
+
+    ffmpeg
   ];
 
   programs.tmux = {
