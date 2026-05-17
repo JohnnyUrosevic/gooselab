@@ -3,6 +3,7 @@
 {
   imports = [
     ./downloads.nix
+    ./byparr.nix
   ];
 
   services.radarr = {
@@ -44,14 +45,5 @@
   services.jellyseerr = {
     enable = true;
     openFirewall = true;
-  };
-
-  services.flaresolverr = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  systemd.services.flaresolverr.environment = {
-    LOG_LEVEL = "debug";
   };
 }
