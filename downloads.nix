@@ -36,9 +36,12 @@
       "8888:8888/tcp"
       "8388:8388/tcp"
       "8388:8388/udp"
-      "8080:8080/tcp"
+      "8080:8080/tcp" #sabnzbd
+      "7979:7979/tcp" #qbittorrent
       "6881:6881/tcp"
       "6881:6881/udp"
+      "6882:6882/tcp"
+      "6882:6882/udp"
     ];
     log-driver = "journald";
     extraOptions = [
@@ -70,12 +73,12 @@
     environment = {
       "PGID" = "1000";
       "PUID" = "1000";
-      "TZ" = "Etc/UTC";
-      "WEBUI_PORT" = "8080";
+      "TZ" = "America/Los_Angeles";
+      "WEBUI_PORT" = "7979";
     };
     volumes = [
       "/var/lib/qBittorrent/qBittorrent/config:/config:rw"
-      "/var/lib/qBittorrent/qBittorrent/downloads:/downloads:rw"
+      "/mnt/data/downloads:/downloads:rw"
     ];
     dependsOn = [
       "gluetun"
@@ -110,6 +113,43 @@
     '';
     partOf = [ "podman-compose-downloads-root.target" ];
     wantedBy = [ "podman-compose-downloads-root.target" ];
+  };
+
+  virtualisation.oci-containers.containers."sabnzbd" = {
+    image = "ghcr.io/linuxserver/sabnzbd";
+    environment = {
+      "PGID" = "1000";
+      "PUID" = "1000";
+      "TZ" = "America/Los_Angeles";
+    };
+    volumes = [
+      "/mnt/data/downloads:/downloads:rw"
+      "/var/lib/sabnzbd/config:/config:rw"
+      "/var/lib/sabnzbd/incomplete_downloads:/incomplete-downloads:rw"
+      "/var/lib/sabnzbd/scripts:/scripts:rw"
+      "/var/lib/sabnzbd/shared:/shared:rw"
+    ];
+    ports = [
+      "7979:7979/tcp"
+    ];
+    dependsOn = [
+      "gluetun"
+    ];
+    log-driver = "journald";
+    extraOptions = [
+      "--network=container:gluetun"
+    ];
+  };
+  systemd.services."podman-sabnzbd" = {
+    serviceConfig = {
+      Restart = lib.mkOverride 90 "always";
+    };
+    partOf = [
+      "podman-compose-downloads-root.target"
+    ];
+    wantedBy = [
+      "podman-compose-downloads-root.target"
+    ];
   };
 
   # Root service
