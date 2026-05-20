@@ -42,7 +42,7 @@
     pkgs.jellyfin-ffmpeg
   ];
 
-  services.jellyseerr = {
+  services.seerr = {
     enable = true;
     openFirewall = true;
   };
