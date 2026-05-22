@@ -4,6 +4,7 @@
   imports = [
     ./downloads.nix
     ./byparr.nix
+    ./reverse_proxy.nix
   ];
 
   services.radarr = {
