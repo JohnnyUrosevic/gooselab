@@ -5,6 +5,7 @@
     ./downloads.nix
     ./byparr.nix
     ./reverse_proxy.nix
+    ./dns.nix
   ];
 
   services.radarr = {
