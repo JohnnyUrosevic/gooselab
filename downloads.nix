@@ -123,11 +123,11 @@
       "TZ" = "America/Los_Angeles";
     };
     volumes = [
-      "/mnt/data/downloads:/downloads:rw"
       "/var/lib/sabnzbd/config:/config:rw"
-      "/var/lib/sabnzbd/incomplete_downloads:/incomplete-downloads:rw"
       "/var/lib/sabnzbd/scripts:/scripts:rw"
       "/var/lib/sabnzbd/shared:/shared:rw"
+      "/mnt/data/usenet-downloads:/incomplete-downloads:rw"
+      "/mnt/data/downloads:/complete:rw"
     ];
     ports = [
       "7979:7979/tcp"
