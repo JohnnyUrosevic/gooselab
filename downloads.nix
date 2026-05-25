@@ -23,12 +23,12 @@
   virtualisation.oci-containers.containers."gluetun" = {
     image = "qmcgaw/gluetun";
     environment = {
-      "OPENVPN_PASSWORD" = "FUu9JWBh4c";
       "OPENVPN_USER" = "p3881393";
       "SERVER_REGIONS" = "US California";
       "VPN_SERVICE_PROVIDER" = "private internet access";
       "VPN_TYPE" = "openvpn";
     };
+    environmentFiles = [ /run/secrets/openvpn/password ];
     volumes = [
       "/var/lib/gluetun:/gluetun:rw"
     ];
