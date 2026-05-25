@@ -16,6 +16,7 @@
       };
 
       customDNS.mapping = {
+        "request.gonse.org" = "192.168.4.66";
         "watch.gonse.org" = "192.168.4.66";
         "gonse.org" = "192.168.4.66";
       };
