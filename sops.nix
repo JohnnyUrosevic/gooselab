@@ -11,4 +11,5 @@
   sops.age.keyFile = "/home/goose/.config/sops/age/keys.txt";
 
   sops.secrets."openvpn/password" = { };
+  sops.secrets."nextcloud/password" = { };
 }
