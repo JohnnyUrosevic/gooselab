@@ -53,7 +53,11 @@
   programs.zsh = {
     enable = true;
     ohMyZsh = {
-      enable = false;
+      enable = true;
+    };
+
+    shellAliases = {
+      build = "sudo nixos-rebuild switch --impure --flake=/home/goose/gooselab/";
     };
   };
 
