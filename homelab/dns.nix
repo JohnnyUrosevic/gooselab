@@ -12,7 +12,10 @@
 
       bootstrapDns = {
         upstream = "https://one.one.one.one/dns-query";
-        ips = [ "1.1.1.1" "1.0.0.1" ];
+        ips = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
       };
 
       customDNS.mapping = {
@@ -32,8 +35,18 @@
     };
   };
 
-  networking.nameservers = [ "127.0.0.1" "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [ "127.0.0.1" ];
 
   networking.firewall.allowedTCPPorts = [ 54 ];
   networking.firewall.allowedUDPPorts = [ 54 ];
+
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      listen-address = "127.0.0.1";
+      bind-interfaces = true;
+      server = [ "127.0.0.1#54" ];
+      cache-size = 0;
+    };
+  };
 }

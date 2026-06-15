@@ -23,6 +23,7 @@
   networking.networkmanager = {
     enable = true;
     settings.main.rc-manager = "resolvconf";
+    dns = "systemd-resolved";
   };
 
   # Set your time zone.

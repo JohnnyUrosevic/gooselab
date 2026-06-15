@@ -8,6 +8,7 @@
     enable = true;
     autoPrune.enable = true;
     dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   # Enable container name DNS for all Podman networks.
