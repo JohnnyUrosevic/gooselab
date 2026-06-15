@@ -31,6 +31,13 @@
     settings.overwriteprotocol = "https";
 
     maxUploadSize = "128G";
+    extraOptions = {
+        max_chunk_size = "1073741824";
+    };
+
+    phpOptions = {
+        "max_execution_time" = "300";
+    };
 
     settings.trusted_domains = [
       "localhost"
