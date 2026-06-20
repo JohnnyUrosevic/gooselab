@@ -52,8 +52,16 @@
 
   programs.zsh = {
     enable = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    enableBashCompletion = true;
+    promptInit = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+    '';
     ohMyZsh = {
       enable = true;
+      theme = "powerlevel10k";
+      plugins = [ "git" ];
     };
 
     shellAliases = {
@@ -79,9 +87,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
+    zsh-powerlevel10k
   ];
 
   nix.settings.experimental-features = [
@@ -95,6 +104,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  fonts.enableDefaultPackages = true;
 
   programs.ssh.startAgent = true;
   services.openssh.enable = true;
