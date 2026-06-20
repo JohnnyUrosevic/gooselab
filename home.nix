@@ -39,6 +39,8 @@ in
     bat
 
     ffmpeg
+
+    sops
   ];
 
   programs.tmux = {
