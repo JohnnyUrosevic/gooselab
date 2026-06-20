@@ -1,6 +1,4 @@
 {
-  pkgs,
-  config,
   ...
 }:
 
@@ -12,4 +10,5 @@
 
   sops.secrets."openvpn/password" = { };
   sops.secrets."nextcloud/password" = { };
+  sops.secrets."kavita/tokenKey" = { };
 }

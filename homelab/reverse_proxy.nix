@@ -16,5 +16,9 @@
     virtualHosts."cloud.gonse.org".extraConfig = ''
       reverse_proxy http://127.0.0.1:8009
     '';
+
+    virtualHosts."read.gonse.org".extraConfig = ''
+      reverse_proxy http://127.0.0.1:5000
+    '';
   };
 }

@@ -8,5 +8,6 @@
     ./reverse_proxy.nix
     ./dns.nix
     ./nextcloud.nix
+    ./books.nix
   ];
 }
