@@ -127,8 +127,8 @@
       "/var/lib/sabnzbd/config:/config:rw"
       "/var/lib/sabnzbd/scripts:/scripts:rw"
       "/var/lib/sabnzbd/shared:/shared:rw"
-      "/mnt/data/usenet-downloads:/incomplete-downloads:rw"
-      "/mnt/data/downloads:/complete:rw"
+      "/var/lib/sabnzbd/incomplete:/incomplete-downloads:rw"
+      "/var/lib/sabnzbd/complete:/complete:rw"
     ];
     ports = [
       "7979:7979/tcp"
