@@ -20,6 +20,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  services.resolved.enable = true;
   networking.networkmanager = {
     enable = true;
     settings.main.rc-manager = "resolvconf";
@@ -119,6 +120,8 @@
     "net.ipv6.conf.all.disable_ipv6" = 1;
     "net.ipv6.conf.default.disable_ipv6" = 1;
   };
+
+  networking.enableIPv6 = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

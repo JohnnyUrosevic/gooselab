@@ -33,18 +33,25 @@
     };
   };
 
-  networking.nameservers = [ "127.0.0.1" ];
-
-  networking.firewall.allowedTCPPorts = [ 54 ];
-  networking.firewall.allowedUDPPorts = [ 54 ];
+  networking.firewall.allowedTCPPorts = [ 53 54 ];
+  networking.firewall.allowedUDPPorts = [ 53 54 ];
 
   services.dnsmasq = {
     enable = true;
     settings = {
-      listen-address = "127.0.0.1";
+      port = 53;
       bind-interfaces = true;
+
+      except-interface = "podman*";
+
+      no-resolv = true;
+      no-poll = true;
+
       server = [ "127.0.0.1#54" ];
       cache-size = 0;
     };
   };
+
+  networking.nameservers = [ "127.0.0.1" ];
+
 }
