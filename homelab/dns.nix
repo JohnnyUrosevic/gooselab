@@ -19,7 +19,7 @@
       };
 
       customDNS.mapping = {
-        "gonse.org" = "192.168.4.66";
+        "gonse.org" = "100.108.232.100";
       };
 
       blocking = {
@@ -43,6 +43,10 @@
       bind-interfaces = true;
 
       except-interface = "podman*";
+
+      listen-address= "127.0.0.1,100.108.232.100";
+      localise-queries = true;
+      local-service = true;
 
       no-resolv = true;
       no-poll = true;
