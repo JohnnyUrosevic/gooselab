@@ -4,6 +4,7 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     nvim = "nvim";
+    tmux = "tmux";
   };
 in
 
@@ -41,10 +42,16 @@ in
     ffmpeg
 
     sops
+
+    tmux
   ];
 
-  programs.tmux = {
-    enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
-  };
+  # programs.tmux = {
+  #   enable = true;
+    # shell = "${pkgs.zsh}/bin/zsh";
+    # extraConfig = ''
+    #   set -g allow-passthrough on
+    #   set -s set-clipboard on
+    # '';
+  # };
 }
