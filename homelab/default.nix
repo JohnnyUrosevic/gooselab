@@ -9,5 +9,6 @@
     ./dns.nix
     ./nextcloud.nix
     ./books.nix
+    ./tailscale.nix
   ];
 }
