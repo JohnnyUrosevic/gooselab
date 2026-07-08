@@ -26,6 +26,13 @@
     tokenKeyFile = /run/secrets/kavita/tokenKey;
   };
 
+  services.audiobookshelf = {
+    enable = true;
+    port = 5001;
+    openFirewall = true;
+    user = "goose";
+  };
+
   networking.firewall.allowedTCPPorts = [ 5000 ];
   networking.firewall.allowedUDPPorts = [ 5000 ];
 }

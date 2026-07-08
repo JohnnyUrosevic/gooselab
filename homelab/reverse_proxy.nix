@@ -6,6 +6,7 @@ let
     "request" = 5055;
     "cloud" = 8009;
     "read" = 5000;
+    "listen" = 5001;
   };
   privateServices = {
     "radarr" = 7878;
