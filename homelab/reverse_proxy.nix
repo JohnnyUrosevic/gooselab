@@ -36,7 +36,7 @@ in
       name = "${subdomain}.gonse.org";
       value = {
         extraConfig = ''
-          @notAllowed not remote_ip 127.0.0.1/32 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8 100.64.0.0/10
+          @notAllowed not remote_ip {$PUBLIC_IP} 100.64.0.0/10 private_ranges
           abort @notAllowed
 
           reverse_proxy http://127.0.0.1:${toString port}
@@ -44,4 +44,6 @@ in
       };
     }) privateServices;
   };
+
+  systemd.services.caddy.serviceConfig.EnvironmentFile = [ "/run/secrets/caddy/environment" ];
 }

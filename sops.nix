@@ -11,4 +11,5 @@
   sops.secrets."openvpn/password" = { };
   sops.secrets."nextcloud/password" = { };
   sops.secrets."kavita/tokenKey" = { };
+  sops.secrets."caddy/environment" = { };
 }
