@@ -18,6 +18,7 @@ in
   home.file.".alias".source = ./dotfiles/.alias;
   home.file.".vimrc".source = ./dotfiles/.vimrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
+  home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
