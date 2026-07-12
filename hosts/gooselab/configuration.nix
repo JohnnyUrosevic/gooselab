@@ -8,18 +8,12 @@
     ../../features/shell.nix
   ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "gooselab"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   services.resolved.enable = true;
   networking.networkmanager = {
     enable = true;
@@ -27,10 +21,8 @@
     dns = "systemd-resolved";
   };
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -45,13 +37,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.goose = {
     isNormalUser = true;
     description = "Johnny Urosevic";
@@ -60,12 +45,10 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
   };
 
   users.defaultUserShell = pkgs.zsh;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
@@ -81,13 +64,6 @@
     "nix-command"
     "flakes"
   ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   fonts.enableDefaultPackages = true;
 
