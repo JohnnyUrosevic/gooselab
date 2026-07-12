@@ -1,17 +1,18 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
     ../../features/homelab
+    ../../features/shell.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "gooselab"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -48,25 +49,6 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
-  };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    enableBashCompletion = true;
-    promptInit = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    '';
-    ohMyZsh = {
-      enable = true;
-      theme = "powerlevel10k";
-      plugins = [ "git" ];
-    };
-
-    shellAliases = {
-      build = "sudo nixos-rebuild switch --impure --flake=/home/goose/gooselab/";
-    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
