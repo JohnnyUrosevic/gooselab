@@ -32,11 +32,15 @@
 
     maxUploadSize = "128G";
     extraOptions = {
-        max_chunk_size = "1073741824";
+      max_chunk_size = "1073741824";
     };
 
+    nginx.enableFastcgiRequestBuffering = false;
+
     phpOptions = {
-        "max_execution_time" = "300";
+      "upload_max_filesize" = "128G";
+      "post_max_size" = "128G";
+      "max_execution_time" = "3600";
     };
 
     settings.trusted_domains = [

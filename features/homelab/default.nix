@@ -10,5 +10,6 @@
     ./nextcloud.nix
     ./books.nix
     ./tailscale.nix
+    ./secrets/sops.nix
   ];
 }

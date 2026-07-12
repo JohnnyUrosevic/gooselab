@@ -14,11 +14,11 @@ in
   programs.git.enable = true;
   home.stateVersion = "25.05";
 
-  home.file.".zshrc".source = ./dotfiles/.zshrc;
-  home.file.".alias".source = ./dotfiles/.alias;
-  home.file.".vimrc".source = ./dotfiles/.vimrc;
-  home.file.".gitconfig".source = ./dotfiles/.gitconfig;
-  home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
+  home.file.".zshrc".source = ../../dotfiles/.zshrc;
+  home.file.".alias".source = ../../dotfiles/.alias;
+  home.file.".vimrc".source = ../../dotfiles/.vimrc;
+  home.file.".gitconfig".source = ../../dotfiles/.gitconfig;
+  home.file.".p10k.zsh".source = ../../dotfiles/.p10k.zsh;
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
@@ -46,13 +46,4 @@ in
 
     tmux
   ];
-
-  # programs.tmux = {
-  #   enable = true;
-    # shell = "${pkgs.zsh}/bin/zsh";
-    # extraConfig = ''
-    #   set -g allow-passthrough on
-    #   set -s set-clipboard on
-    # '';
-  # };
 }
