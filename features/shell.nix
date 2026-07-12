@@ -2,6 +2,10 @@
 { pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    zsh-powerlevel10k
+  ];
+
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   dotfiles = "${config.home.homeDirectory}/gooselab/dotfiles/.config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
@@ -24,26 +24,4 @@ in
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
-
-  home.packages = with pkgs; [
-    neovim
-    ripgrep
-    gcc
-    nodejs
-    nil
-    nixpkgs-fmt
-
-    cowsay
-    fortune-kind
-    zoxide
-
-    lazygit
-    bat
-
-    ffmpeg
-
-    sops
-
-    tmux
-  ];
 }

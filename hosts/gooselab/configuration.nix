@@ -6,6 +6,7 @@
     /etc/nixos/hardware-configuration.nix
     ../../features/homelab
     ../../features/shell.nix
+    ../../features/cli.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -24,7 +25,6 @@
   time.timeZone = "America/Los_Angeles";
 
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -46,19 +46,10 @@
     ];
     shell = pkgs.zsh;
   };
-
   users.defaultUserShell = pkgs.zsh;
 
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    zsh-powerlevel10k
-  ];
 
   nix.settings.experimental-features = [
     "nix-command"
