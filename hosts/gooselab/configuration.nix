@@ -4,9 +4,8 @@
   imports = [
     # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
+    ../../features
     ../../features/homelab
-    ../../features/shell.nix
-    ../../features/cli.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
