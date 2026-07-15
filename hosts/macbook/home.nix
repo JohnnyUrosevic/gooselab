@@ -10,11 +10,10 @@ in
 
 {
   home.username = "goose";
-  home.homeDirectory = "/home/goose";
-  programs.git.enable = true;
+  home.homeDirectory = "/Users/goose";
   home.stateVersion = "25.05";
 
-  home.file.".zshrc".source = ../../dotfiles/.zshrc;
+  # home.file.".zshrc".source = ../../dotfiles/.zshrc;
   home.file.".alias".source = ../../dotfiles/.alias;
   home.file.".vimrc".source = ../../dotfiles/.vimrc;
   home.file.".gitconfig".source = ../../dotfiles/.gitconfig;
@@ -25,7 +24,10 @@ in
     recursive = true;
   }) configs;
 
-  programs.zsh.shellAliases = {
-    build = "sudo nixos-rebuild switch --impure --flake=/home/goose/gooselab/";
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      build = "sudo darwin-rebuild switch --flake=/Users/goose/gooselab/";
+    };
   };
 }
