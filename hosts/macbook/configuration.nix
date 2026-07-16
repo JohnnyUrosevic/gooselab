@@ -3,6 +3,7 @@
 {
   imports = [
     ../../features
+    ../../features/1password.nix
   ];
 
   users.users.goose = {
