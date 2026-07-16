@@ -4,6 +4,7 @@
   imports = [
     ../../features
     ../../features/1password.nix
+    ./homebrew.nix
   ];
 
   users.users.goose = {

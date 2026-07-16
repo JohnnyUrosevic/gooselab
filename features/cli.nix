@@ -19,6 +19,8 @@
 
     lazygit
     bat
+    fd
+    skim
 
     ffmpeg
 
