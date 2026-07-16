@@ -14,6 +14,8 @@
   };
   system.primaryUser = "goose";
 
+  networking.localHostName = "Johnnys-MacBook-Air";
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
@@ -22,6 +24,8 @@
   ];
 
   time.timeZone = "America/Los_Angeles";
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.keyboard = {
     enableKeyMapping = true;
