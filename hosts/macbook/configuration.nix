@@ -28,9 +28,14 @@
   };
 
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
+  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+  system.defaults.NSGlobalDomain.AppleShowAllFiles = true;
+  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
 
-  system.defaults.finder.AppleShowAllFiles = true;
-  system.defaults.finder.AppleShowAllExtensions = true;
+  system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
+
   system.defaults.finder.NewWindowTarget = "Home";
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder._FXSortFoldersFirst = true;
